@@ -21,7 +21,8 @@ extension MixPreviewData: PreviewModifier {
 
   static func makeSharedContext() throws -> ModelContainer {
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try ModelContainer(for: Mix.self, Temp.self, configurations: config)
+    let container = try ModelContainer(for: Mix.self, Temp.self, 
+                                       configurations: config)
     let context = ModelContext(container)
     addData(context: context)
     try context.save()
@@ -33,3 +34,5 @@ extension MixPreviewData: PreviewModifier {
   }
 }
 ```
+
+Note that the type(s) of PersistentModel(s) and the name of the file being extended are computed in the macro.
