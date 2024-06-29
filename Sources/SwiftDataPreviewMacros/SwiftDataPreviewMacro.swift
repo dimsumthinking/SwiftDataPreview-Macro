@@ -38,7 +38,7 @@ public struct SwiftDataPreviewMacro: ExtensionMacro {
 private func persistenceTypes(from node: AttributeSyntax) -> String {
   guard case .argumentList(let arguments) = node.arguments,
         let _ = arguments.first?.expression else {
-    fatalError("Expect closure expression")
+    fatalError("no arguments")
   }
   return "\(arguments)"
 }

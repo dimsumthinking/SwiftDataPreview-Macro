@@ -2,6 +2,19 @@ import SwiftDataPreview
 import SwiftUI
 import SwiftData
 
+@SwiftDataPreview(for: Mix.self, Temp.self)
+struct MixPreviewData {
+  static func addData(context: ModelContext) {
+    for mix in Mix.sampleMixes {
+      context.insert(mix)
+    }
+  }
+}
+
+
+
+// Data source
+
 @Model
 public class Mix {
   public var name: String = ""
@@ -27,15 +40,6 @@ class Temp {
   init() {}
 }
 
-@SwiftDataPreview(for: Mix.self, Temp.self)
-struct MixPreviewData {
-  static func addData(context: ModelContext) {
-    for mix in Mix.sampleMixes {
-      context.insert(mix)
-    }
-  }
-}
-
 extension Mix {
   public static var sampleMixes: [Mix] {
     [Mix(name: "Epi",
@@ -57,3 +61,5 @@ extension Mix {
 
   }
 }
+
+
